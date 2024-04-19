@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Matlab</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="82cb5a8c-8527-4297-9241-51e329d08d10" class="page sans"><header><h1 class="page-title">Matlab</h1><p class="page-description"></p></header><div class="page-body"><nav id="bf91fa67-273f-4d59-b45f-bfd509cd18bc" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#922c4077-ee95-4aff-9e31-bf1a9e9d3e54">Control Dashboard</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ac7b1406-31a3-433b-adb0-71b7fd84932e">Main Hub</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a0826c53-e0b4-4d12-8b23-6c51d8c4e51f">File Documentation</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2ed75f38-4664-468a-b2c9-e39eac23f347">Controllers</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#711ccddf-3b31-43b3-ac22-afe18ec67470">Motor Controller</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5899f8a7-16e6-4b07-9b9f-5a5309e52f47">Pneumatic Controller</a></div></nav><h1 id="922c4077-ee95-4aff-9e31-bf1a9e9d3e54" class="">Control Dashboard</h1><figure id="3ed1edde-c9d3-4716-9d9d-f9a4bae6f751" class="image"><a href="Matlab%2082cb5a8c85274297924151e329d08d10/Untitled.png"><img style="width:1213px" src="Matlab%2082cb5a8c85274297924151e329d08d10/Untitled.png"/></a></figure><p id="269b8672-1963-4718-bc54-54ca301aaec6" class="">
+</p><p id="7f58c7f2-692e-4beb-aefc-8de9ba6a9be5" class="">The Control Dashboard, powered by Simulink Real-Time, served as a centralized interface for real-time adjustments to various control parameters. It allowed for dynamic changes to controller parameters, Pneumatic Artificial Muscles (PAMs) pressures, and safety flags during the experiments.</p><ul id="61576bf3-d94b-423b-940e-477611215583" class="bulleted-list"><li style="list-style-type:disc">PAMs Pressure Control: Facilitates manipulation of PAM pressures, contributing to the adaptability of the system. Switch for pre-pressurizing the parameters.</li></ul><ul id="4d8a2e7e-2d90-4399-8a2c-f4fe8433bdb4" class="bulleted-list"><li style="list-style-type:disc">Motors &amp; High Level Control: Parameters that are online tunable to control the robot.</li></ul><ul id="eb76dd83-cbd2-48e0-8d6a-dc270cd41a85" class="bulleted-list"><li style="list-style-type:disc">GRF: Simple taring switch.</li></ul><ul id="b48061a2-9d9c-4db5-9ca0-8e8f01cea3c7" class="bulleted-list"><li style="list-style-type:disc">Safety Flags: Provides a convenient means to toggle safety flags, enhancing experimental safety and control.</li></ul><h1 id="ac7b1406-31a3-433b-adb0-71b7fd84932e" class="">Main Hub</h1><figure id="eea8e3b8-4603-4a2d-b104-394bd0bd914e" class="image"><a href="Matlab%2082cb5a8c85274297924151e329d08d10/Untitled%201.png"><img style="width:1861px" src="Matlab%2082cb5a8c85274297924151e329d08d10/Untitled%201.png"/></a></figure><ol type="1" id="685ec0a7-59a6-4513-883e-afd60e81852e" class="numbered-list" start="1"><li>High Level Control<ol type="a" id="dbc4c3fd-f167-43e2-90b1-13ed102aa27c" class="numbered-list" start="1"><li>Calculate Setpoint for each motor.<ol type="i" id="7260c757-8109-47cb-a3d3-60a75cca8585" class="numbered-list" start="1"><li><a href="Matlab%2082cb5a8c85274297924151e329d08d10.html">Motor Controller</a><ol type="1" id="ad2565fd-2b69-4ab9-bc6d-93ff251a1342" class="numbered-list" start="1"><li>Phase Detector<ol type="a" id="4da19bd3-c347-43fa-8084-f54c9da9b30f" class="numbered-list" start="1"><li>FMCK</li></ol><ol type="a" id="53962489-a9c7-480a-8efd-81444f475af3" class="numbered-list" start="2"><li>Position Control</li></ol></li></ol><ol type="1" id="de486317-8ea3-477f-9324-56ac9b1e56c0" class="numbered-list" start="2"><li>Previously implemented but it can be changed.</li></ol></li></ol></li></ol><ol type="a" id="fa19a0cb-6b65-442d-b01b-17753f3d8d39" class="numbered-list" start="2"><li>Use all state values.</li></ol><ol type="a" id="03f58b2b-8779-49e3-8f25-25f307c5597a" class="numbered-list" start="3"><li>Use setpoints from the control dashboard.</li></ol></li></ol><ol type="1" id="7db3ef48-6e56-41e2-b310-f305c4a215d1" class="numbered-list" start="2"><li>Ethernet Communication<ol type="a" id="9eb1c9da-7050-4b97-b0a3-ff79f2af6e77" class="numbered-list" start="1"><li>Handles all comunications between Simulink and Arduinos.</li></ol><ol type="a" id="b9653e9c-87b3-429d-a625-2851d7ec1447" class="numbered-list" start="2"><li>Includes byte shifting and assign the communication for each slave.</li></ol></li></ol><ol type="1" id="043b8aec-770a-4935-89d3-5def1397dad9" class="numbered-list" start="3"><li>GRF<ol type="a" id="a4b51a22-d15f-4a0a-8373-70dd526939a7" class="numbered-list" start="1"><li>Handles the information provided by the pressure plate and averages and filter the GRF on Z axis.</li></ol><ol type="a" id="ae766fcb-6980-4f76-9f35-e38b0ced03c9" class="numbered-list" start="2"><li>GRF on x and y axes are not implemented.</li></ol></li></ol><ol type="1" id="98f2be96-826f-43e3-8264-a4b551f4939e" class="numbered-list" start="4"><li>Safety<ol type="a" id="c5fdd2be-091e-46f6-a2c9-58e3a66bb691" class="numbered-list" start="1"><li>Handles all the safety configurations of the system.<ol type="i" id="348b3438-91b8-4849-bffa-4b7ff7e91935" class="numbered-list" start="1"><li>Emergency physical switch.</li></ol><ol type="i" id="46ad90ed-8cb7-4bb6-8ba2-f47e313d3cf0" class="numbered-list" start="2"><li>Simulink Flags.</li></ol><ol type="i" id="3550ba1c-b484-45f5-8913-07f4481ddd10" class="numbered-list" start="3"><li>User constrainsts<ol type="1" id="549ebdfb-ea1b-45a8-b3a6-ad60509511c0" class="numbered-list" start="1"><li>Maximum and minimum angles for the joints.</li></ol></li></ol></li></ol></li></ol><ol type="1" id="6b379769-6a27-4d13-8f9d-2b53963d0dd6" class="numbered-list" start="5"><li>Motors<ol type="a" id="887b08ca-eae4-4794-8ea9-7409fe66d24e" class="numbered-list" start="1"><li>Calculate the information to be sent to the Arduino motor.</li></ol><ol type="a" id="8e093c55-9565-4720-b16c-b48ddd523dbd" class="numbered-list" start="2"><li>Select information to be shown on dashboard and to be stored.</li></ol></li></ol><ol type="1" id="e303a2ef-d9f1-44be-9529-37196027196b" class="numbered-list" start="6"><li>PAMs<ol type="a" id="38ab01a6-06d0-4d03-9ab7-c1e6ac404054" class="numbered-list" start="1"><li>Implements <a href="Matlab%2082cb5a8c85274297924151e329d08d10.html">PID controller</a> for each PAM for filling and unfilling PAMs.</li></ol></li></ol><ol type="1" id="f1b0d3d5-3f40-441a-9723-f24f8201d597" class="numbered-list" start="7"><li>Command Control<ol type="a" id="5f8a20ac-21f9-44a5-a45a-73c08df6d742" class="numbered-list" start="1"><li><a href="Matlab%2082cb5a8c85274297924151e329d08d10.html">Command Control</a></li></ol></li></ol><h1 id="a0826c53-e0b4-4d12-8b23-6c51d8c4e51f" class="">File Documentation</h1><ol type="1" id="8a62f724-96a0-405f-a43a-70240fa79108" class="numbered-list" start="1"><li><strong>Simulink Models:</strong><ul id="83dd1257-fa7c-4943-841d-b2950216b36e" class="bulleted-list"><li style="list-style-type:disc"><code><strong>EPA_Jumper.slx</strong></code>: Simulink model file for the EPA Jumper experiment.</li></ul><ul id="07ce1d6c-414e-4033-9833-9d303c19fbb3" class="bulleted-list"><li style="list-style-type:disc"><code><strong>EPA_Jumper.slxc</strong></code>: Generated Simulink model file (compiled).</li></ul></li></ol><ol type="1" id="b0296249-6b67-4c62-8f17-c3866cfa910e" class="numbered-list" start="2"><li><strong>Configuration and Initialization Scripts:</strong><ul id="3dcb4c4f-c1b9-41dc-9750-84360c6571a3" class="bulleted-list"><li style="list-style-type:disc"><code><strong>Init_EPA_Jumper.m</strong></code>: Initialization script for the EPA Jumper experiment.<ul id="7492fce7-2a23-414b-8c9e-4a54b7cee83a" class="bulleted-list"><li style="list-style-type:circle">Constants to load Simulink model.</li></ul><ul id="053dc535-9f7e-467b-8fac-c5e35a86c63a" class="bulleted-list"><li style="list-style-type:circle">Opens Simulink Model.</li></ul></li></ul></li></ol><ol type="1" id="c05ae785-1e4b-4fd0-87a7-28cd52dcaf1e" class="numbered-list" start="3"><li><strong>Data Extraction and Analysis Scripts:</strong><ul id="4bf0b8c1-f80f-4ffd-8015-a8d0fa1786af" class="bulleted-list"><li style="list-style-type:disc"><code><strong>extractXPCData.m</strong></code>: Script for extracting data from XPC target and saving them on the host PC.</li></ul><ul id="2d8b3ff5-b0be-4f85-86d9-2d24ce56384f" class="bulleted-list"><li style="list-style-type:disc"><code><strong>getControlParameters.m</strong></code>: Script to retrieve control parameters and saving them after one experiment.</li></ul></li></ol><ol type="1" id="8add8cb5-cc03-481d-b7e3-57ebb71a1a1c" class="numbered-list" start="4"><li><strong>XML Configuration File:</strong><ul id="04ff3f99-f957-49a4-a9a7-83c52b98c3b3" class="bulleted-list"><li style="list-style-type:disc"><code><strong>EPA_Jumper_2.xml</strong></code>: XML configuration file for EtherCat Netowork as example</li></ul></li></ol><ol type="1" id="33564dc2-c799-404e-a827-f03196484410" class="numbered-list" start="5"><li><strong>Simulink auxiliary files</strong><ul id="0097414d-c90f-4a3a-9ae8-33b577430ee2" class="bulleted-list"><li style="list-style-type:disc"><code><strong>float_to_uint.m</strong></code>: MATLAB script for converting floating-point data to unsigned integers.</li></ul><ul id="7bec498e-f2cc-4f6b-ae6e-97709fceb266" class="bulleted-list"><li style="list-style-type:disc"><code><strong>uint_to_float.m</strong></code>: MATLAB script for converting unsigned integers to floating-point data.</li></ul><ul id="b2ff537b-31cd-4540-8b2d-36792ec941c3" class="bulleted-list"><li style="list-style-type:disc"><code><strong>Motor_handler.m</strong></code>: Script handling motor-related functionalities.</li></ul><ul id="faf9fc14-7309-4242-bc99-8e04d99ec4d0" class="bulleted-list"><li style="list-style-type:disc"><code><strong>PressureSensor.m</strong></code>: Script related to pressure sensor functionalities.</li></ul><ul id="784e7443-4b91-4427-8a40-98a196c8b9b3" class="bulleted-list"><li style="list-style-type:disc"><code><strong>Solenoid.m</strong></code>: Script for managing solenoid operations.</li></ul></li></ol><p id="7ed172e5-5a1c-48a4-a96e-9c3c5123ebfc" class="">
+</p><h1 id="2ed75f38-4664-468a-b2c9-e39eac23f347" class="">Controllers</h1><p id="79bc9d3a-7a90-4cf6-9a81-818273618894" class="">These controllers are already implemeted but it can be easily changed for further use of the robot.</p><h2 id="711ccddf-3b31-43b3-ac22-afe18ec67470" class="">Motor Controller</h2><p id="4a84126a-dd57-4a57-b98b-ae6fb2823dfb" class="">The motor control system in the experimental setup is a crucial component governing the behavior of the system during different phases of operation. In the flight phase, a position control scheme is employed, utilizing encoder feedback mechanisms within the motors to precisely regulate motor position. This ensures smooth transitions between phases, providing controlled landings.</p><p id="0d9c67c7-6ffb-4e26-a4d4-a9da67fdbb63" class="">Conversely, the stance phase employs a specialized control strategy known as FMCK (Force Modulated Compliant Knee). FMCK utilizes ground reaction forces to modulate knee joint compliance. The torque applied at the knee is determined by an adjustable spring equation, allowing the robot to dynamically adjust knee compliance in response to varying ground forces. This contributes to stable and controlled hopping motions, even in the presence of disturbances.</p><p id="6d2c9005-b6bb-420f-acc9-30069caf1b94" class="">The phase detection mechanism is carefully designed, incorporating a low-pass filter in the analysis of pressure plate readings to enhance accurate detection of phase transitions. The control strategies are illustrated in a diagram , depicting the dual levels of control – high-level MATLAB control and low-level internal motor controls.</p><p id="ffbc659c-d191-400a-be1f-e9f6f746f4c7" class="">The FMCK method involves adjusting knee compliance based on ground reaction forces, contributing to the stability of hopping motions. This control approach aligns with positive force feedback concepts, providing adaptability and stability during experiments.</p><h2 id="5899f8a7-16e6-4b07-9b9f-5a5309e52f47" class="">Pneumatic Controller</h2><p id="2675d1e2-5443-4d8f-b845-77108756978c" class="">The pneumatic control strategy underwent an evolution from an initial PID controller approach to a refined method due to operational frequency limitations of the valves. The valves&#x27; maximum operational frequency of 3 Hz posed challenges for achieving precise pressure control, especially when compared to studies utilizing higher frequencies, such as 50 Hz. To overcome this limitation, a selective activation strategy was implemented, allowing the controller to be turned on only when necessary for maintaining pressure precision during the experiment. This adaptive approach was in line with the passive nature of Pneumatic Artificial Muscles (PAMs).</p><p id="b9871ca5-929f-4fa6-a257-55265780c208" class="">In an effort to minimize the workload on the valves, the controller incorporated two distinct deadzones based on Lyapunov Stability principles. An inner deadzone of 0.5% and an outer deadzone of 5% were introduced, enabling the controller to approach the setpoint within the inner deadzone and reactivate if the system deviated beyond the outer deadzone. Furthermore, to prevent integral windup, the integral component of the controller was consistently maintained at 0. This refined pneumatic control strategy aimed to enhance the efficiency and stability of pressure regulation in the experimental setup.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
